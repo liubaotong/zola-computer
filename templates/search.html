@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}搜索 - {{ config.title }}{% endblock title %}
+
+{% block extra_head %}
+<style>
+    .search-wrapper {
+        margin: 2rem 0;
+        text-align: center;
+    }
+    
+    .search-input {
+        width: 100%;
+        max-width: 600px;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+    }
+    
+    .search-input:focus {
+        outline: none;
+        border-color: #3498db;
+    }
+    
+    .search-results {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+    
+    .search-result-item {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        background: #fff;
+    }
+    
+    .search-result-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .search-result-url {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+    
+    .search-result-excerpt {
+        color: #555;
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+    }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<div class="search-page">
+    <div class="search-header">
+        <h1>搜索文章</h1>
+        <p>在 {{ config.title }} 中查找您感兴趣的内容</p>
+    </div>
+
+    <div class="search-wrapper">
+        <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="输入关键词搜索..."
+            autocomplete="off"
+        >
+    </div>
+
+    <div id="search-results" class="search-results">
+        <p class="no-results">输入关键词开始搜索...</p>
+    </div>
+</div>
+
+{% if config.build_search_index %}
+{% set current_lang = lang | default(value='en') %}
+<script src="{{ get_url(path='elasticlunr.min.js') }}"></script>
+<script src="{{ get_url(path='search_index.' ~ current_lang ~ '.js') }}"></script>
+<div id="search-data" data-index-path="{{ get_url(path='search_index.' ~ current_lang ~ '.js') }}"></div>
+<script>
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchData = document.getElementById('search-data');
+    const searchIndexPath = searchData.dataset.indexPath;
+    
+    let searchIndex;
+    
+    fetch(searchIndexPath)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            searchIndex = elasticlunr.Index.load(data);
+        });
+    
+    // 执行搜索
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        
+        if (query.length < 2) {
+            searchResults.innerHTML = '<p class="no-results">输入至少2个字符开始搜索...</p>';
+            return;
+        }
+        
+        const results = searchIndex.search(query, {
+            fields: {
+                title: {boost: 2},
+                content: {boost: 1}
+            },
+            expand: true
+        });
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p class="no-results">未找到匹配的文章</p>';
+            return;
+        }
+        
+        const resultsHTML = results.map(result => {
+            const doc = searchIndex.documentStore.getDoc(result.ref);
+            return `
+                <div class="search-result-item">
+                    <h3 class="search-result-title">
+                        <a href="${doc.url}">${doc.title}</a>
+                    </h3>
+                    <p class="search-result-url">${doc.url}</p>
+                    <p class="search-result-excerpt">${doc.content.substring(0, 200)}...</p>
+                </div>
+            `;
+        }).join('');
+        
+        searchResults.innerHTML = resultsHTML;
+    });
+</script>
+{% else %}
+<p style="text-align: center; color: #666; margin-top: 2rem;">
+    搜索功能未启用。要在 zola.toml 中设置 <code>build_search_index = true</code> 来启用搜索。
+</p>
+{% endif %}
+{% endblock content %}

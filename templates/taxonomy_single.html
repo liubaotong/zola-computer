@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="taxonomy-header">
+    <h1>{{ term.name }}</h1>
+    <p class="taxonomy-count">共 {{ term.pages | length }} 篇文章</p>
+</div>
+
+<div class="posts-list">
+    {% for page in term.pages %}
+        <article class="post-item">
+            <h2 class="post-title">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+            </h2>
+            <div class="post-meta">
+                <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                    {{ page.date | date(format="%Y年%m月%d日 %H:%M") }}
+                </time>
+                {% if page.extra.author %}
+                    <span class="author">作者: {{ page.extra.author }}</span>
+                {% endif %}
+            </div>
+            {% if page.summary %}
+                <p class="post-excerpt">{{ page.summary | safe }}</p>
+            {% endif %}
+        </article>
+    {% endfor %}
+</div>
+{% endblock content %}

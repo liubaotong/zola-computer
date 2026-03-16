@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(value='zh-CN') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ get_url(path='favicon.svg') }}">
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
+            <ul class="nav-links">
+                <li><a href="{{ config.base_url }}">首页</a></li>
+                {% set main_section = get_section(path='_index.md') %}
+                {% for subsection_path in main_section.subsections %}
+                    {% set subsection = get_section(path=subsection_path) %}
+                    <li><a href="{{ subsection.permalink }}">{{ subsection.title }}</a></li>
+                {% endfor %}
+                <li><a href="{{ get_url(path='@/about.md') }}">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. 保留所有权利。</p>
+    </footer>
+
+    {% block extra_scripts %}{% endblock extra_scripts %}
+</body>
+</html>

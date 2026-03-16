@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="all-taxonomies">
+    <h1>所有{{ taxonomy.name }}</h1>
+    
+    {% if terms %}
+        <div class="taxonomy-list">
+            {% for term in terms %}
+                <div class="taxonomy-item">
+                    <h2 class="taxonomy-term">
+                        <a href="{{ term.permalink | safe }}">{{ term.name }}</a>
+                        <span class="count">({{ term.pages | length }})</span>
+                    </h2>
+                    {% if term.pages %}
+                        <ul class="taxonomy-posts">
+                            {% for page in term.pages | slice(end=5) %}
+                                <li>
+                                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                                    <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                                </li>
+                            {% endfor %}
+                            {% if term.pages | length > 5 %}
+                                <li class="view-all">
+                                    <a href="{{ term.permalink | safe }}">查看全部 {{ term.pages | length }} 篇文章 →</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-taxonomies">暂无{{ taxonomy.name }}。</p>
+    {% endif %}
+</div>
+{% endblock content %}

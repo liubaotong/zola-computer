@@ -1,0 +1,29 @@
+# The URL the site will be built for
+base_url = "https://huajiu.pages.dev"
+title = "我的博客"
+description = "欢迎来到我的个人博客，这里分享技术文章和生活感悟"
+default_language = "zh"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+# Note: Search index only supports specific languages, disabling for now
+build_search_index = false
+
+# The taxonomies to be rendered for the site and their configuration
+taxonomies = [
+    {name = "tags", feed = true},
+    {name = "categories", feed = true},
+]
+
+[markdown]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+# Put all your custom variables here
+qq = "121335287"
+email = "agebook257@hotmail.com"
+github = "https://github.com/liubaotong"

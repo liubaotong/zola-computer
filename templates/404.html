@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}404 - 页面未找到{% endblock title %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-content">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">页面未找到</h2>
+        <p class="error-message">
+            抱歉，您访问的页面不存在或已被移除。
+        </p>
+        <p class="error-hint">
+            您可以尝试以下操作：
+        </p>
+        <ul class="error-suggestions">
+            <li>检查URL是否正确</li>
+            <li>返回<a href="{{ config.base_url }}">首页</a>浏览其他内容</li>
+            <li>使用搜索功能查找您需要的内容</li>
+        </ul>
+        <a href="{{ config.base_url }}" class="back-home">返回首页</a>
+    </div>
+</div>
+{% endblock content %}

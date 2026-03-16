@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>欢迎来到 {{ config.title }}</h1>
+    <p>{{ config.description | default(value='一个简洁优雅的静态网站') }}</p>
+</div>
+
+<section class="latest-posts">
+    <h2>最新文章</h2>
+    <div class="posts-grid">
+        {% set posts_section = get_section(path='posts/_index.md') %}
+        {% for post in posts_section.pages | slice(end=96) %}
+            <article class="post-card">
+                <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+                <p class="post-date">{{ post.date | date(format="%Y年%m月%d日 %H:%M") }}</p>
+                {% if post.extra.summary %}
+                    <p class="post-summary">{{ post.extra.summary | safe }}</p>
+                {% else %}
+                    <p class="post-summary">{{ post.content | truncate(length=150) | safe }}</p>
+                {% endif %}
+                <a href="{{ post.permalink }}" class="read-more">阅读更多 →</a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}
