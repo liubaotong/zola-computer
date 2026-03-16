@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://huajiu.pages.dev"
-title = "我的博客"
+title = "编程资讯"
 description = "欢迎来到我的个人博客，这里分享技术文章和生活感悟"
 default_language = "zh"
 
