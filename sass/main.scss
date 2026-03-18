@@ -78,7 +78,7 @@ header {
     transition: all 0.3s ease;
 
     &.site-header {
-        background-color: #E5E7EB;
+        background-color: rgba(0, 0, 0, .03);
     }
 
     nav {
@@ -937,7 +937,7 @@ footer {
         border-radius: 12px;
 
         .post-header {
-            position: relative;
+            position: static;
             margin-bottom: 2rem;
             padding-bottom: 1.25rem;
             // 手机端增加顶部间距，避免贴顶
@@ -1067,7 +1067,7 @@ footer {
         padding: 1.25rem;
 
         .post-header {
-            position: relative;
+            position: static;
 
             .post-title {
                 font-size: 1.25rem;
