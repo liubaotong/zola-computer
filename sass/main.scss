@@ -424,19 +424,26 @@ main {
             }
         }
 
-        // 表格样式
+        // 表格样式 - 支持横向滚动
         .table-wrapper {
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch; // iOS 平滑滚动
             margin: 1.5rem 0;
             border-radius: 12px;
             border: 1px solid var(--border-light);
+            
+            // 确保表格不会撑破容器
+            max-width: 100%;
         }
 
         table {
             width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
             font-size: 0.9375rem;
             background: var(--bg-primary);
+            // 防止表格内容撑开
+            table-layout: auto;
 
             thead {
                 background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
@@ -525,9 +532,12 @@ main {
 
         .post-categories {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; // 允许换行
             gap: 0.5rem;
             margin-bottom: 1rem;
+            // 不限制宽度，让标签自然换行
+            width: 100%;
+            max-width: 100%;
 
             a {
                 background: var(--bg-tertiary);
@@ -538,6 +548,9 @@ main {
                 font-size: 0.875rem;
                 font-weight: 500;
                 transition: all 0.2s ease;
+                // 标签不要压缩
+                white-space: nowrap;
+                flex-shrink: 0;
 
                 &:hover {
                     background: var(--primary-color);
@@ -924,6 +937,13 @@ footer {
         border-radius: 12px;
 
         .post-header {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            // 手机端增加顶部间距，避免贴顶
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+
             .post-title {
                 font-size: 1.5rem;
             }
@@ -931,11 +951,16 @@ footer {
             .post-meta {
                 flex-direction: column;
                 gap: 0.75rem;
+
+                span {
+                    display: block;
+                }
             }
         }
 
         .post-content {
             font-size: 1rem;
+            overflow: scroll;
 
             h2 {
                 font-size: 1.25rem;
@@ -946,11 +971,29 @@ footer {
                 font-size: 0.8125rem;
             }
 
-            table {
-                font-size: 0.8125rem;
-
-                th, td {
-                    padding: 0.625rem 0.75rem;
+            // 表格移动端优化 - 确保滚动显示
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 1rem 0;
+                // 确保不撑出屏幕
+                max-width: 100%;
+                
+                table {
+                    // 移动端允许表格内容自然换行
+                    white-space: normal;
+                    
+                    th, td {
+                        padding: 0.625rem 0.75rem;
+                        // 允许单元格内容换行
+                        white-space: normal;
+                        word-break: break-word;
+                    }
+                    
+                    // 表头不换行
+                    th {
+                        white-space: nowrap;
+                    }
                 }
             }
         }
@@ -1024,13 +1067,22 @@ footer {
         padding: 1.25rem;
 
         .post-header {
+            position: relative;
+
             .post-title {
                 font-size: 1.25rem;
+            }
+
+            .post-meta {
+                span {
+                    display: block;
+                }
             }
         }
 
         .post-content {
             font-size: 0.9375rem;
+            overflow: scroll;
 
             h2 {
                 font-size: 1.125rem;
