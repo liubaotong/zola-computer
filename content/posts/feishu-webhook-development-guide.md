@@ -276,7 +276,73 @@ python main.py
 
 ---
 
-## 七、常见问题
+## 七、完整示例代码
+
+### 7.1 自动回复示例
+
+在 `handle_message_event` 中添加自动回复逻辑：
+
+```python
+def handle_message_event(event: dict) -> dict:
+    """处理消息事件"""
+    message = event.get("message", {})
+    sender = event.get("sender", {})
+    
+    # 解析消息内容
+    content = message.get("content", {})
+    if isinstance(content, str):
+        content = json.loads(content)
+    
+    # 获取聊天 ID 和用户信息
+    chat_id = message.get("chat_id", "")
+    user_text = content.get("text", "")
+    open_id = sender.get("sender_id", {}).get("open_id", "")
+    
+    logger.info(f"收到来自 {open_id} 的消息：{user_text}")
+    
+    # 自动回复
+    if user_text:
+        reply_message(chat_id, f"收到你的消息：{user_text}")
+    
+    return {"status": "success"}
+```
+
+### 7.2 智能回复示例（集成 AI）
+
+```python
+import requests
+
+def call_ai_api(user_text: str) -> str:
+    """调用 AI 接口生成回复"""
+    # 示例：调用某个 AI API
+    url = "https://api.example.com/chat"
+    response = requests.post(url, json={"message": user_text})
+    result = response.json()
+    return result.get("reply", "抱歉，我暂时无法回答")
+
+def handle_message_event(event: dict) -> dict:
+    """处理消息事件 - 智能回复版"""
+    message = event.get("message", {})
+    content = message.get("content", {})
+    
+    if isinstance(content, str):
+        content = json.loads(content)
+    
+    chat_id = message.get("chat_id", "")
+    user_text = content.get("text", "")
+    
+    # 调用 AI 接口生成回复
+    ai_reply = call_ai_api(user_text)
+    
+    # 发送回复
+    reply_message(chat_id, ai_reply)
+    
+    return {"status": "success"}
+```
+
+---
+
+## 八、常见问题
 
 ### Q1: 验证时返回 401 错误
 
@@ -298,29 +364,51 @@ python main.py
 
 ### Q4: 如何回复消息
 
-使用飞书 API 发送消息：
+回复消息需要调用飞书的发送消息 API，并且 `receive_id_type` 参数必须放在 URL 查询参数中：
 
 ```python
 import requests
 
-def reply_message(chat_id: str, content: str, app_access_token: str):
-    url = "https://open.feishu.cn/open-apis/im/v1/messages"
+# 1. 获取 app_access_token
+def get_app_access_token(app_id: str, app_secret: str) -> str:
+    url = "https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal"
+    data = {"app_id": app_id, "app_secret": app_secret}
+    response = requests.post(url, json=data)
+    result = response.json()
+    return result.get("app_access_token", "")
+
+# 2. 发送消息（注意 receive_id_type 在 URL 中）
+def reply_message(chat_id: str, content: str, token: str):
+    # receive_id_type 必须放在 URL 查询参数中！
+    url = "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id"
     headers = {
-        "Authorization": f"Bearer {app_access_token}",
+        "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
     }
     data = {
-        "receive_id": chat_id,
+        "receive_id": chat_id,  # p2p 聊天传 chat_id，群聊也传 chat_id
         "msg_type": "text",
         "content": json.dumps({"text": content})
     }
     response = requests.post(url, headers=headers, json=data)
     return response.json()
+
+# 使用示例
+token = get_app_access_token("your_app_id", "your_app_secret")
+reply_message("oc_xxx", "收到你的消息", token)
 ```
+
+**关键点：**
+- `receive_id_type` 必须放在 URL 查询参数中，不是请求体
+- p2p 聊天和群聊都使用 `chat_id`（以 `oc_` 开头）
+- 需要配置应用的 `app_id` 和 `app_secret`
 
 ---
 
-## 八、参考文档
+## 九、参考文档
 
-- [飞书开放平台 - 处理事件](https://feishu.apifox.cn/doc-7518538)
+- [飞书开放平台 - 事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM?lang=zh-CN)
+- [飞书开放平台 - 将事件发送至开发者服务器](https://feishu.apifox.cn/doc-7518435)
+- [飞书开放平台 - 接收事件](https://feishu.apifox.cn/doc-7518444)
+- [飞书开放平台 - 发送消息](https://open.feishu.cn/document/server-docs/im-v1/message/create)
 - [博客：深入理解飞书 Webhook 签名验证](https://www.cnblogs.com/mudtools/p/19492945)
