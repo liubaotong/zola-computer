@@ -11,8 +11,6 @@ summary = "本文详细介绍了如何使用 PyBind11 将 C++ 代码暴露给 Py
 author = "博主"
 +++
 
-# 使用 PyBind11 开发 Python 扩展：完整教程
-
 PyBind11 是一个轻量级的头文件库，用于将 C++ 代码暴露给 Python。它使用现代 C++ 特性（C++11 及以上）来简化 Python 扩展的开发过程，非常适合需要高性能计算的 C++ 项目。
 
 ## 为什么选择 PyBind11？

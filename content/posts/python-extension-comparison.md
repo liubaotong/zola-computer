@@ -11,8 +11,6 @@ summary = "本文全面对比了四种主要的 Python 扩展开发方案：PyO3
 author = "博主"
 +++
 
-# Python 扩展开发方案对比：PyO3、Cython、PyBind11 与 Boost.Python
-
 Python 以其简洁的语法和丰富的生态系统著称，但在性能关键型场景中常常成为瓶颈。为了突破性能限制，开发者可以选择多种扩展方案。本文将全面对比四种主流的 Python 扩展开发工具：PyO3 (Rust)、Cython、PyBind11 (C++) 和 Boost.Python (C++)。
 
 ## 概述对比

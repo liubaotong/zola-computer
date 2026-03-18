@@ -10,8 +10,6 @@ summary = "全面介绍 Linux 四大启动系统：Systemd（现代主流）、S
 author = "博主"
 +++
 
-# Linux 启动系统详解：Systemd、SysVinit、OpenRC 和 Upstart 对比
-
 Linux 启动系统（Init System）是操作系统启动过程中的第一个用户空间进程（PID 1），负责初始化系统、管理服务和协调系统运行。它是 Linux 系统的核心组件之一，直接影响系统的启动速度、服务管理和整体稳定性。
 
 本文将深入介绍 Linux 四大主流启动系统：

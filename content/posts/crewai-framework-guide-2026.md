@@ -10,8 +10,6 @@ summary = "全面介绍 CrewAI 多 Agent 协作框架，包含核心概念、安
 author = "博主"
 +++
 
-# CrewAI 框架完全指南 2026：多 Agent 协作系统实战
-
 在多 Agent AI 系统领域，**CrewAI** 以其独特的角色协作架构和简洁的 API 设计脱颖而出。作为一个从零构建的独立框架，CrewAI 不依赖 LangChain 或其他库，专注于让多个 specialized AI Agent 像人类团队一样协作完成复杂任务。
 
 本文将深入介绍 CrewAI 的核心概念、使用方法和最佳实践，通过完整的代码示例，帮助你掌握构建生产级多 Agent 系统的关键技术。

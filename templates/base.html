@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ config.description }}">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
     <link rel="icon" type="image/svg+xml" href="{{ get_url(path='favicon.svg') }}">
     {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <nav>
             <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
+            <button class="mobile-menu-toggle" aria-label="切换菜单" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="{{ config.base_url }}">首页</a></li>
                 {% set main_section = get_section(path='_index.md') %}
@@ -31,6 +37,35 @@
     <footer>
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. 保留所有权利。</p>
     </footer>
+
+    <script>
+        // 移动端菜单切换
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // 点击菜单外部关闭菜单
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // 滚动时添加头部阴影
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
 
     {% block extra_scripts %}{% endblock extra_scripts %}
 </body>

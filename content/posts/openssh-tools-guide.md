@@ -10,8 +10,6 @@ summary = "深入解析 OpenSSH 套件中的核心工具，包括 ssh-keygen、s
 author = "博主"
 +++
 
-# OpenSSH 工具链完全指南：密钥管理与安全连接
-
 OpenSSH 是 Linux/Unix 系统中最常用的远程连接工具套件，它不仅提供了安全的加密通信，还包含了一套完整的密钥管理工具。本文将深入介绍 OpenSSH 套件中的核心工具，帮助你构建安全的远程连接工作流。
 
 ## OpenSSH 工具概览

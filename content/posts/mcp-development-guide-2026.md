@@ -10,8 +10,6 @@ summary = "全面介绍 Model Context Protocol (MCP) 开发，包含架构设计
 author = "博主"
 +++
 
-# MCP 开发完全指南 2026：Python、TypeScript、Go 和 Rust 实现详解
-
 **Model Context Protocol (MCP)** 正在成为 AI Agent 与外部工具通信的事实标准。从 Anthropic 在 2024 年 11 月发布至今，MCP 已获得 OpenAI、Google、Microsoft 等巨头的支持，超过 1000 个公共 MCP 服务器投入使用。
 
 本文将深入介绍 MCP 的架构设计、核心概念，并提供 **Python、TypeScript、Go（两种 SDK）和 Rust** 四种语言的完整实现示例，帮助你快速掌握 MCP 开发技能。

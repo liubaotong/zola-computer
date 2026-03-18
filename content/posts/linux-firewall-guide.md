@@ -10,8 +10,6 @@ summary = "全面介绍 Linux 三大防火墙工具：iptables、nftables 和 fi
 author = "博主"
 +++
 
-# Linux 防火墙完全指南：iptables、nftables 和 firewalld 实战
-
 Linux 防火墙是系统安全的第一道防线，对于服务器管理员和运维工程师来说，掌握防火墙配置是必备技能。本文将全面介绍 Linux 系统中三大主流防火墙工具：**iptables**（传统经典）、**nftables**（新一代框架）和 **firewalld**（动态管理），帮助你根据实际需求选择合适的工具，构建安全可靠的网络防护体系。
 
 无论你是刚接触 Linux 的新手，还是有一定经验的管理员，这篇文章都将为你提供从基础概念到高级配置的完整知识体系。
