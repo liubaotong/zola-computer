@@ -4,6 +4,7 @@ date = "2026-03-16T22:50:00+08:00"
 
 [taxonomies]
 tags = ["windows", "操作系统", "内核", "架构", "系统编程"]
+categories = ["操作系统"]
 
 [extra]
 summary = "深入解析 Windows 操作系统架构，包括内核架构、子系统、功能模块、COM 接口等核心概念，帮助开发者理解 Windows 系统底层原理。"

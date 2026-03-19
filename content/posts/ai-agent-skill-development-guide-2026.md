@@ -4,6 +4,7 @@ date = "2026-03-18T22:00:00+08:00"
 
 [taxonomies]
 tags = ["AI Agent", "Skill 开发", "Claude Skills", "MCP", "工具设计", "最佳实践"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 AI Agent Skill 开发，包含 Skill 定义、设计原则、结构规范、开发流程、测试方法，以及 Claude Skills、MCP Tools、LangChain Tools 等多种框架的 Skill 实现，附带丰富的实战案例和模板。"

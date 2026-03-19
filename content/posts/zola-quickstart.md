@@ -4,6 +4,7 @@ date = "2026-02-06T19:00:00+08:00"
 
 [taxonomies]
 tags = ["zola", "静态", "指南"]
+categories = ["编程"]
 
 [extra]
 summary = "本文介绍如何快速开始使用 Zola 静态站点生成器，包括安装、初始化项目、构建和预览网站。"

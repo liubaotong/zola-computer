@@ -4,6 +4,7 @@ date = "2026-03-16T20:00:00+08:00"
 
 [taxonomies]
 tags = ["SSH", "OpenSSH", "网络安全", "密钥管理", "Linux", "DevOps"]
+categories = ["网络"]
 
 [extra]
 summary = "深入解析 OpenSSH 套件中的核心工具，包括 ssh-keygen、ssh-agent、ssh-add、ssh-keyscan 等，帮助读者理解 SSH 密钥管理和安全连接的完整工作流。"

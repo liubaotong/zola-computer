@@ -4,6 +4,7 @@ date = "2026-03-19T05:11:00+08:00"
 
 [taxonomies]
 tags = ["rust", "axum", "web", "框架", "教程", "tokio"]
+categories = ["编程", "网络"]
 
 [extra]
 summary = "Axum 是 Tokio 团队开发的现代化 Rust Web 框架，本文详细介绍其核心概念、路由、提取器、中间件和实际应用。"

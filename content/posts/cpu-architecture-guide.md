@@ -4,6 +4,7 @@ date = "2026-03-16T23:54:00+08:00"
 
 [taxonomies]
 tags = ["CPU", "处理器", "架构", "Intel", "AMD", "ARM", "RISC-V", "计算机硬件"]
+categories = ["组成原理"]
 
 [extra]
 summary = "全面解析主流 CPU 架构，包括 x86、ARM 和 RISC-V 的指令集特点、架构演进、代际发展和应用场景，帮助读者理解处理器技术的核心差异。"

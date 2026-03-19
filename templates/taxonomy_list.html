@@ -3,34 +3,67 @@
 {% block title %}所有{{ taxonomy.name }} - {{ config.title }}{% endblock title %}
 
 {% block content %}
-<div class="taxonomy-header">
-    <h1>所有{{ taxonomy.name }}</h1>
-    <p class="taxonomy-count">共 {{ terms | length }} 个{{ taxonomy.name }}</p>
-</div>
-
-<div class="all-taxonomies">
-    {% for term in terms %}
-        <div class="taxonomy-item">
-            <h2 class="taxonomy-term">
-                <a href="{{ term.permalink }}">{{ term.name }}</a>
-                <span class="count">{{ term.pages | length }} 篇文章</span>
-            </h2>
-            <ul class="taxonomy-posts">
-                {% for page in term.pages | slice(end=5) %}
-                    <li>
-                        <a href="{{ page.permalink }}">{{ page.title }}</a>
-                        <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
-                            {{ page.date | date(format="%Y年%m月%d日 %H:%M") }}
-                        </time>
-                    </li>
-                {% endfor %}
-                {% if term.pages | length > 5 %}
-                    <li class="view-all">
-                        <a href="{{ term.permalink }}">查看全部 {{ term.pages | length }} 篇文章 →</a>
-                    </li>
-                {% endif %}
-            </ul>
+{% if taxonomy.name == "categories" %}
+    <div class="categories-page">
+        <h1>文章分类</h1>
+        <p class="page-description">浏览不同技术领域的文章</p>
+        <div class="categories-grid">
+            {% for term in terms %}
+                <div class="category-card">
+                    <h2 class="category-name">
+                        <a href="{{ term.permalink }}">{{ term.name }}</a>
+                    </h2>
+                    <p class="category-count">{{ term.pages | length }} 篇文章</p>
+                    {% if term.pages %}
+                        <ul class="category-posts">
+                            {% for page in term.pages | slice(end=3) %}
+                                <li>
+                                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                                </li>
+                            {% endfor %}
+                            {% if term.pages | length > 3 %}
+                                <li class="view-more">
+                                    <a href="{{ term.permalink }}">查看更多 →</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <p class="no-posts">暂无文章</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-</div>
+    </div>
+{% else %}
+    <div class="taxonomy-header">
+        <h1>所有{{ taxonomy.name }}</h1>
+        <p class="taxonomy-count">共 {{ terms | length }} 个{{ taxonomy.name }}</p>
+    </div>
+
+    <div class="all-taxonomies">
+        {% for term in terms %}
+            <div class="taxonomy-item">
+                <h2 class="taxonomy-term">
+                    <a href="{{ term.permalink }}">{{ term.name }}</a>
+                    <span class="count">{{ term.pages | length }} 篇文章</span>
+                </h2>
+                <ul class="taxonomy-posts">
+                    {% for page in term.pages | slice(end=5) %}
+                        <li>
+                            <a href="{{ page.permalink }}">{{ page.title }}</a>
+                            <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                                {{ page.date | date(format="%Y年%m月%d日 %H:%M") }}
+                            </time>
+                        </li>
+                    {% endfor %}
+                    {% if term.pages | length > 5 %}
+                        <li class="view-all">
+                            <a href="{{ term.permalink }}">查看全部 {{ term.pages | length }} 篇文章 →</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 {% endblock content %}

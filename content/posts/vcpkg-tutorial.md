@@ -4,6 +4,7 @@ date = "2026-02-14T20:00:00+08:00"
 
 [taxonomies]
 tags = ["C++", "vcpkg", "包管理器", "CMake", "开发工具"]
+categories = ["编程"]
 
 [extra]
 summary = "vcpkg 是由微软开发和维护的免费开源 C/C++ 包管理器，旨在简化跨平台 C++ 开发中的依赖管理。它支持 Windows、macOS 和 Linux 三大主流操作系统，能够与各种构建系统和项目结构无缝集成。"

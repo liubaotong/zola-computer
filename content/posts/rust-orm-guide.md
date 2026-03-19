@@ -4,6 +4,7 @@ date = "2026-03-19T05:36:00+08:00"
 
 [taxonomies]
 tags = ["rust", "orm", "database", "sqlx", "diesel", "sea-orm", "postgresql"]
+categories = ["编程", "数据库"]
 
 [extra]
 summary = "本文详细介绍 Rust 生态中的主流 ORM 框架：Diesel、SQLx、SeaORM 和 SeaQuery，帮助你选择最适合的数据库访问方案。"

@@ -4,6 +4,7 @@ date = "2026-02-11T19:00:00+08:00"
 
 [taxonomies]
 tags = ["循环", "编程"]
+categories = ["编程"]
 
 [extra]
 summary = "以 C 语言为基准，对比分析 C++、Java、JavaScript、Go、Rust、Python、Lua、PHP、Zig 等主流编程语言的循环语法特点和演进趋势。"

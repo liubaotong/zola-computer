@@ -4,6 +4,7 @@ date = "2026-03-18T14:00:00+08:00"
 
 [taxonomies]
 tags = ["pi-mono", "AI", "编码助手", "CLI", "TypeScript", "LLM"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 pi-mono 极简主义 AI 编码助手框架，包含核心设计理念、安装配置、多模型支持、工具集成、会话管理和高级用法，附带丰富的实战示例。"

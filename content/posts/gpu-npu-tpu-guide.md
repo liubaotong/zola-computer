@@ -4,6 +4,7 @@ date = "2026-03-16T23:56:00+08:00"
 
 [taxonomies]
 tags = ["GPU", "NPU", "TPU", "AI 加速器", "NVIDIA", "AMD", "Intel", "Google", "深度学习"]
+categories = ["组成原理"]
 
 [extra]
 summary = "全面解析 AI 时代的算力引擎，包括 NVIDIA、AMD、Intel 的 GPU 产品，苹果、高通、Intel 的 NPU，以及 Google TPU 等专用 AI 加速器，帮助读者理解不同算力芯片的特点和应用场景。"

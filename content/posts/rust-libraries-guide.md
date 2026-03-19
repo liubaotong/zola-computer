@@ -4,6 +4,7 @@ date = "2026-03-16T22:35:00+08:00"
 
 [taxonomies]
 tags = ["rust", "第三方库", "编程", "crates"]
+categories = ["编程"]
 
 [extra]
 summary = "Rust 拥有丰富的 crates 生态，本文介绍 Web 框架、异步运行时、数据库、序列化等常用库，帮助你快速构建 Rust 应用。"

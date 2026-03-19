@@ -4,6 +4,7 @@ date = "2026-03-19T04:40:00+08:00"
 
 [taxonomies]
 tags = ["rust", "actix", "web", "框架", "教程"]
+categories = ["编程", "网络"]
 
 [extra]
 summary = "Actix 是 Rust 生态中最受欢迎的 Web 框架之一，本文详细介绍 Actix 和 Actix-web 的核心概念、使用方法和最佳实践。"

@@ -4,7 +4,7 @@ date = "2026-02-14T19:40:00+08:00"
 
 [taxonomies]
 tags = ["python", "c++", "pybind11", "扩展开发"]
-categories = ["编程教程"]
+categories = ["编程"]
 
 [extra]
 summary = "本文详细介绍了如何使用 PyBind11 将 C++ 代码暴露给 Python，包括基本绑定、类定义、异常处理等核心内容。"

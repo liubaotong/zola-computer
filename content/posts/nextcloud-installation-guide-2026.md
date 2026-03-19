@@ -4,6 +4,7 @@ date = "2026-03-18T11:00:00+08:00"
 
 [taxonomies]
 tags = ["Nextcloud", "私有云", "Docker", "自托管", "文件同步"]
+categories = ["开源服务"]
 
 [extra]
 summary = "全面介绍 Nextcloud 2026 最新版本的安装方法，包括 Docker Compose 一键部署、手动安装配置、系统要求、性能优化和常见问题解决方案，帮助你快速搭建私有云平台。"

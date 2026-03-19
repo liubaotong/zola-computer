@@ -4,6 +4,7 @@ date = "2026-03-18T15:00:00+08:00"
 
 [taxonomies]
 tags = ["CrewAI", "AI Agent", "多 Agent 系统", "Python", "自动化"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 CrewAI 多 Agent 协作框架，包含核心概念、安装配置、Agent 创建、任务编排、工具集成、流程控制等完整知识，附带丰富的实战代码示例和项目案例。"

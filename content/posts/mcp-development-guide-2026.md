@@ -4,6 +4,7 @@ date = "2026-03-18T21:00:00+08:00"
 
 [taxonomies]
 tags = ["MCP", "Model Context Protocol", "AI", "Python", "TypeScript", "Go", "Rust", "开发指南"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 Model Context Protocol (MCP) 开发，包含架构设计、核心概念、Python/TypeScript/Go/Rust 四种语言完整实现、生产级部署方案，帮助你构建 AI Agent 与外部工具的标准接口。"

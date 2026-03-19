@@ -4,6 +4,7 @@ date = "2026-03-18T17:00:00+08:00"
 
 [taxonomies]
 tags = ["LlamaIndex", "RAG", "AI", "向量数据库", "Python", "知识库"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 LlamaIndex RAG 开发框架，包含核心概念、数据加载、索引构建、查询引擎、高级 RAG 技巧、Agent 集成等完整知识，附带丰富的实战代码示例和生产级部署方案。"

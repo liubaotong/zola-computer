@@ -4,6 +4,7 @@ date = "2026-03-18T19:00:00+08:00"
 
 [taxonomies]
 tags = ["AI Agent", "框架对比", "LangChain", "CrewAI", "AutoGen", "LlamaIndex", "PydanticAI", "Agno", "Pi-Mono"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面对比 2026 年主流 AI Agent 开发框架，从架构设计、核心特性、性能指标、学习曲线、生态系统、适用场景等维度深度分析 LangChain、Agno、CrewAI、AutoGen、LlamaIndex、PydanticAI 和 Pi-Mono，帮助你选择最适合的框架。"

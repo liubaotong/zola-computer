@@ -4,6 +4,7 @@ date = "2026-03-18T18:00:00+08:00"
 
 [taxonomies]
 tags = ["PydanticAI", "AI Agent", "Python", "类型安全", "结构化输出"]
+categories = ["人工智能"]
 
 [extra]
 summary = "全面介绍 PydanticAI 类型安全 AI Agent 框架，包含核心概念、结构化输出、工具注册、依赖注入、MCP 集成、可观测性等完整知识，附带丰富的实战代码示例和生产级部署方案。"

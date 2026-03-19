@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://huajiu.pages.dev"
-title = "编程资讯"
-description = "欢迎来到我的个人博客，这里分享技术文章和生活感悟"
+title = "化玖采诗"
+description = "代码与思考的空间，记录技术探索之路，从系统底层到 AI 前沿"
 default_language = "zh"
 
 # Whether to automatically compile all Sass files in the sass directory
@@ -14,7 +14,7 @@ build_search_index = false
 # The taxonomies to be rendered for the site and their configuration
 taxonomies = [
     {name = "tags", feed = true},
-    {name = "categories", feed = true},
+    {name = "categories", feed = true, generate_feeds = true},
 ]
 
 [markdown]

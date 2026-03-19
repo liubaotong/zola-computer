@@ -4,6 +4,7 @@ date = "2026-03-16T20:41:27+08:00"
 
 [taxonomies]
 tags = ["Linux", "Systemd", "启动系统", "运维", "系统管理"]
+categories = ["操作系统"]
 
 [extra]
 summary = "全面介绍 Linux 四大启动系统：Systemd（现代主流）、SysVinit（传统经典）、OpenRC（轻量替代）和 Upstart（事件驱动先驱），包含工作原理、常用命令和实际应用场景。"

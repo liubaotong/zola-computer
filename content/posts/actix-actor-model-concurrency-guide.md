@@ -4,6 +4,7 @@ date = "2026-03-19T05:00:00+08:00"
 
 [taxonomies]
 tags = ["rust", "actix", "actor", "concurrency", "并发", "消息传递"]
+categories = ["编程", "网络"]
 
 [extra]
 summary = "深入解析 Actix 框架的 Actor 模型设计，探讨 Rust 中基于消息传递的并发编程思想和最佳实践。"

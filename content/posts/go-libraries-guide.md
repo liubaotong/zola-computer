@@ -4,6 +4,7 @@ date = "2026-03-16T22:30:00+08:00"
 
 [taxonomies]
 tags = ["go", "golang", "第三方库", "编程"]
+categories = ["编程"]
 
 [extra]
 summary = "Go 语言拥有丰富的第三方库生态，本文介绍 Web 框架、数据库、工具类等常用库，帮助你快速构建 Go 应用。"

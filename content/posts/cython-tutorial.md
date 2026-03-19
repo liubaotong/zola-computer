@@ -4,8 +4,7 @@ date = "2026-02-14T19:44:00+08:00"
 
 [taxonomies]
 tags = ["python", "cython", "扩展开发", "性能优化"]
-categories = ["编程教程"]
-
+categories = ["编程"]
 [extra]
 summary = "本文详细介绍了如何使用 Cython 开发高性能的 Python 扩展，包括基本语法、类型声明、性能优化等核心内容。"
 author = "博主"

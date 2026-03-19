@@ -4,7 +4,7 @@ date = "2026-03-19T02:30:00+08:00"
 
 [taxonomies]
 tags = ["飞书", "WebHook", "Python", "API 集成"]
-categories = ["开发教程"]
+categories = ["网络"]
 
 [extra]
 summary = "本文详细介绍如何使用 Python 开发飞书机器人事件回调服务器，涵盖配置流程、加密解密、签名验证等核心内容。"

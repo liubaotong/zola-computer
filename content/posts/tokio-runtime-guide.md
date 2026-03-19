@@ -4,6 +4,7 @@ date = "2026-03-19T05:22:00+08:00"
 
 [taxonomies]
 tags = ["rust", "tokio", "async", "runtime", "并发", "异步"]
+categories = ["编程"]
 
 [extra]
 summary = "Tokio 是 Rust 生态中最核心的异步运行时，本文详细介绍其架构、任务调度、通道、计时器和实际应用。"

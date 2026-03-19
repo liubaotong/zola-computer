@@ -4,6 +4,7 @@ date = "2026-02-11T19:00:00+08:00"
 
 [taxonomies]
 tags = ["rust", "编程", "指南"]
+categories = ["编程"]
 
 [extra]
 summary = "Rust 是一门系统级编程语言，注重安全性和性能。本文带你了解 Rust 的基础概念和语法。"

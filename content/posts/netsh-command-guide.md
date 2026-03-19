@@ -4,6 +4,7 @@ date = "2026-03-18T10:00:00+08:00"
 
 [taxonomies]
 tags = ["Windows", "网络", "netsh", "运维", "命令行"]
+categories = ["网络"]
 
 [extra]
 summary = "全面介绍 Windows netsh 命令的各个功能模块，包括网络接口配置、防火墙管理、WLAN 设置、端口映射等实用技巧，是 Windows 网络管理员的必备参考手册。"

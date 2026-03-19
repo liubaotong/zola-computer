@@ -4,6 +4,7 @@ date = "2026-03-16T22:20:00+08:00"
 
 [taxonomies]
 tags = ["python", "第三方库", "编程", "生态"]
+categories = ["编程"]
 
 [extra]
 summary = "Python 拥有丰富的第三方库生态，本文介绍 Web 开发、数据科学、机器学习、自动化等常用库，帮助你快速构建 Python 应用。"

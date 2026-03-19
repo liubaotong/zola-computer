@@ -4,6 +4,7 @@ date = "2026-03-18T16:00:00+08:00"
 
 [taxonomies]
 tags = ["AutoGen", "Microsoft", "AI Agent", "多 Agent 系统", "Python"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍微软 AutoGen 多 Agent 协作框架，包含核心概念、架构设计、Agent 创建、对话模式、工具集成、代码执行等完整知识，附带丰富的实战代码示例和项目案例。"

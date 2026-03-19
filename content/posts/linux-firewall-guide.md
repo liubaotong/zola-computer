@@ -4,6 +4,7 @@ date = "2026-03-16T20:12:37+08:00"
 
 [taxonomies]
 tags = ["Linux", "防火墙", "安全", "网络", "运维"]
+categories = ["操作系统", "网络"]
 
 [extra]
 summary = "全面介绍 Linux 三大防火墙工具：iptables、nftables 和 firewalld，包含基础概念、实战配置和最佳实践，帮助你构建安全的网络防护体系。"

@@ -4,7 +4,7 @@ date = "2026-02-14T19:54:00+08:00"
 
 [taxonomies]
 tags = ["python", "rust", "c++", "扩展开发", "性能优化"]
-categories = ["编程教程"]
+categories = ["编程"]
 
 [extra]
 summary = "本文全面对比了四种主要的 Python 扩展开发方案：PyO3 (Rust)、Cython、PyBind11 和 Boost.Python (C++)，帮助你根据项目需求选择最合适的工具。"

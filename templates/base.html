@@ -20,6 +20,7 @@
             </button>
             <ul class="nav-links">
                 <li><a href="{{ config.base_url }}">首页</a></li>
+                <li><a href="{{ get_url(path='categories') }}">分类</a></li>
                 {% set main_section = get_section(path='_index.md') %}
                 {% for subsection_path in main_section.subsections %}
                     {% set subsection = get_section(path=subsection_path) %}

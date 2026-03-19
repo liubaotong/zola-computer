@@ -4,7 +4,7 @@ date = "2026-02-14T18:00:00+08:00"
 
 [taxonomies]
 tags = ["rust", "python", "pyo3", "扩展开发"]
-categories = ["编程教程"]
+categories = ["编程"]
 
 [extra]
 summary = "本文详细介绍了如何使用 Rust 和 PyO3 库开发高性能的 Python 扩展，涵盖从基础函数到复杂类定义的完整实现指南。"

@@ -4,6 +4,7 @@ date = "2026-03-19T05:06:00+08:00"
 
 [taxonomies]
 tags = ["rust", "tower", "middleware", "service", "web", "框架"]
+categories = ["编程"]
 
 [extra]
 summary = "Tower 是 Rust 生态中重要的中间件库，本文详细介绍其 Service 和 Layer 核心抽象，以及如何构建可组合的中间件系统。"

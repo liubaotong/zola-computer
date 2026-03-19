@@ -4,6 +4,7 @@ date = "2026-03-19T04:52:00+08:00"
 
 [taxonomies]
 tags = ["rust", "宏", "metaprogramming", "proc-macro", "教程"]
+categories = ["编程"]
 
 [extra]
 summary = "Rust 的宏系统是其最强大的特性之一，本文详细介绍声明式宏和过程宏的开发方法，帮助你掌握编译时代码生成技术。"

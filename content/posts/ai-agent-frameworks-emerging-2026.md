@@ -4,6 +4,7 @@ date = "2026-03-18T20:00:00+08:00"
 
 [taxonomies]
 tags = ["AI Agent", "开发框架", "LangGraph", "OpenAI SDK", "Google ADK", "技术评测"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "除了 LangChain、CrewAI 等主流框架，2026 年还有哪些值得关注的 AI Agent 开发框架？本文深度评测 13 款新兴框架，包括 OpenAI Agents SDK、Google ADK、Microsoft Agent Framework、LangGraph、Mastra 等，提供详细的功能对比、代码示例和选择建议。"

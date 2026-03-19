@@ -4,6 +4,7 @@ date = "2026-03-18T13:00:00+08:00"
 
 [taxonomies]
 tags = ["Agno", "AI Agent", "Python", "多 Agent 系统", "自动化"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 Agno（原 Phidata）AI Agent 开发框架，包含核心特性、安装配置、Agent 创建、工具集成、多 Agent 协作、工作流编排等完整知识，附带丰富的实战代码示例。"

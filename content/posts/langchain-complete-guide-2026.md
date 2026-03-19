@@ -4,6 +4,7 @@ date = "2026-03-18T12:00:00+08:00"
 
 [taxonomies]
 tags = ["LangChain", "AI", "大语言模型", "RAG", "AI Agent", "Python"]
+categories = ["人工智能", "编程"]
 
 [extra]
 summary = "全面介绍 LangChain 2026 最新版本的架构设计、核心组件、生态系统，包含完整的代码示例，涵盖 Chains、Agents、RAG、LangGraph 等核心技术，帮助你快速构建生产级 AI 应用。"
