@@ -20,7 +20,7 @@ taxonomies = [
 [markdown]
 
 [markdown.highlighting]
-theme = "catppuccin-mocha"
+theme = "github-dark"
 
 [extra]
 # Put all your custom variables here
