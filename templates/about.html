@@ -5,42 +5,75 @@
 {% block content %}
 <div class="about-page">
     <div class="about-header">
-        <h1>关于我们</h1>
+        <div class="avatar">
+            <img src="{{ get_url(path='avatars.jpg') }}" alt="花酒头像" />
+        </div>
+        <h1>关于我</h1>
+        <p class="about-intro">热爱编程，专注技术，分享知识</p>
     </div>
 
     <div class="about-content">
         <section class="about-section">
-            <h2>网站简介</h2>
-            <p>{{ config.description | default(value='这是一个使用Zola静态站点生成器构建的网站。') }}</p>
+            <h2>👋 你好</h2>
+            <p>我是化玖，一名热爱技术的开发者。这个博客是我记录学习历程、分享技术心得的地方。</p>
+            <p>在这里，你会找到关于 <strong>编程语言</strong>、<strong>人工智能</strong>、<strong>系统底层</strong> 等领域的文章。我相信通过写作可以加深理解，也希望能帮助到有需要的人。</p>
         </section>
 
         <section class="about-section">
-            <h2>关于技术栈</h2>
+            <h2>📚 博客内容</h2>
+            <p>本网站主要包含以下技术方向的内容：</p>
+            <div class="content-tags">
+                <span class="content-tag">🦀 Rust 编程</span>
+                <span class="content-tag">🐍 Python 开发</span>
+                <span class="content-tag">🤖 AI/LLM/AI Agent</span>
+                <span class="content-tag">🌐 网络编程</span>
+                <span class="content-tag">💻 操作系统</span>
+                <span class="content-tag">🔧 开发工具</span>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>🛠️ 技术栈</h2>
             <p>本网站使用以下技术构建：</p>
             <ul class="tech-list">
-                <li><strong>Zola</strong> - 快速的静态站点生成器</li>
-                <li><strong>Tera</strong> - 模板引擎</li>
-                <li><strong>Sass</strong> - CSS预处理器</li>
-                <li><strong>Markdown</strong> - 内容编写</li>
+                <li><strong>Zola</strong> — 快速轻量的静态站点生成器（Rust 编写）</li>
+                <li><strong>Tera</strong> — 简洁的模板引擎</li>
+                <li><strong>Sass</strong> — CSS 预处理器</li>
+                <li><strong>Markdown</strong> — 内容编写格式</li>
             </ul>
         </section>
 
         <section class="about-section">
-            <h2>联系方式</h2>
-            {% if config.extra.qq %}
-                <p>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin={{ config.extra.qq }}&site=qq&menu=yes" target="_blank" rel="noopener">{{ config.extra.qq }}</a></p>
-            {% endif %}
-            {% if config.extra.email %}
-                <p>邮箱: <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></p>
-            {% endif %}
-            {% if config.extra.github %}
-                <p>GitHub: <a href="{{ config.extra.github }}" target="_blank" rel="noopener">{{ config.extra.github }}</a></p>
-            {% endif %}
+            <h2>📬 联系方式</h2>
+            <div class="contact-list">
+                {% if config.extra.email %}
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>邮箱：</span>
+                        <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
+                    </div>
+                {% endif %}
+                {% if config.extra.qq %}
+                    <div class="contact-item">
+                        <span class="contact-icon">🐧</span>
+                        <span>QQ：</span>
+                        <a href="http://wpa.qq.com/msgrd?v=3&uin={{ config.extra.qq }}&site=qq&menu=yes" target="_blank" rel="noopener">{{ config.extra.qq }}</a>
+                    </div>
+                {% endif %}
+                {% if config.extra.github %}
+                    <div class="contact-item">
+                        <span class="contact-icon">🐙</span>
+                        <span>GitHub：</span>
+                        <a href="{{ config.extra.github }}" target="_blank" rel="noopener">{{ config.extra.github | replace(from="https://github.com/", to="") }}</a>
+                    </div>
+                {% endif %}
+            </div>
         </section>
 
         <section class="about-section">
-            <h2>版权声明</h2>
-            <p>除非另有说明，本网站所有内容均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。</p>
+            <h2>⚖️ 版权声明</h2>
+            <p>除非另有说明，本网站所有原创文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>（CC BY-NC-SA 4.0）。</p>
+            <p class="license-note">你可以自由地分享和改编本站内容，但须注明出处，不得用于商业用途，并以相同许可协议分享。</p>
         </section>
     </div>
 </div>
