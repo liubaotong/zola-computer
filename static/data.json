@@ -494,14 +494,14 @@
       "description": "Zig 教程和资源"
     },
     {
+      "name": "SF",
+      "url": "https://segmentfault.com",
+      "description": "知识分享社区"
+    },
+    {
       "name": "掘金",
       "url": "https://juejin.cn",
       "description": "中文技术社区"
-    },
-    {
-      "name": "Segmentfault",
-      "url": "https://segmentfault.com",
-      "description": "知识分享社区"
     },
     {
       "name": "V2EX",
