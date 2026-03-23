@@ -118,7 +118,7 @@ header {
                     transition: color 0.2s ease;
 
                     &:hover {
-                        color: var(--error-color);
+                        color: var(--primary-color);
                     }
 
                     // 下划线动画
@@ -225,12 +225,6 @@ main {
         font-size: 0.875rem;
         color: var(--text-muted);
         margin-bottom: 0.5rem;
-
-        .calendar-icon {
-            color: black;
-            flex-shrink: 0;
-            opacity: 0.6;
-        }
     }
 
     .post-meta {
@@ -242,18 +236,6 @@ main {
         border-top: 1px solid var(--border-light);
         font-size: 0.875rem;
         color: var(--text-secondary);
-
-        .post-date {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            color: var(--text-muted);
-
-            .calendar-icon {
-                flex-shrink: 0;
-                opacity: 0.6;
-            }
-        }
     }
 
     .post-tags {
@@ -716,6 +698,12 @@ main {
             color: var(--text-muted);
             font-size: 0.875rem;
             margin-bottom: 0.75rem;
+
+            time {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
         }
 
         .post-excerpt {
@@ -1377,11 +1365,6 @@ footer {
         gap: 1rem;
     }
 
-    // 关于页面
-    .about-page {
-        padding: 1.5rem;
-    }
-
     // 错误页面
     .error-page {
         padding: 3rem 1rem;
@@ -1526,4 +1509,11 @@ footer {
 
 .mb-4 {
     margin-bottom: 1rem;
+}
+
+// 日历图标样式
+.calendar-icon {
+    color: var(--primary-dark);
+    flex-shrink: 0;
+    opacity: 0.6;
 }
