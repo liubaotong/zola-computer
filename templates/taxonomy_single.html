@@ -9,7 +9,8 @@
 </div>
 
 <div class="posts-list">
-    {% for page in term.pages %}
+    {% set pages = paginator.pages | default(value=term.pages) %}
+    {% for page in pages %}
         <article class="post-item">
             <h2 class="post-title">
                 <a href="{{ page.permalink }}">{{ page.title }}</a>
@@ -19,7 +20,7 @@
                     {{ page.date | date(format="%Y年%m月%d日 %H:%M") }}
                 </time>
                 {% if page.extra.author %}
-                    <span class="author">作者: {{ page.extra.author }}</span>
+                    <span class="author">作者：{{ page.extra.author }}</span>
                 {% endif %}
             </div>
             {% if page.summary %}
@@ -28,4 +29,26 @@
         </article>
     {% endfor %}
 </div>
+
+{% if paginator %}
+    <nav class="pagination">
+        <div class="pagination-nav">
+            {% if paginator.previous %}
+                <a href="{{ paginator.previous }}" class="pagination-link">← 上一页</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+            
+            <span class="pagination-info">
+                第 {{ paginator.current_index }} / {{ paginator.number_pagers }} 页
+            </span>
+            
+            {% if paginator.next %}
+                <a href="{{ paginator.next }}" class="pagination-link">下一页 →</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+        </div>
+    </nav>
+{% endif %}
 {% endblock content %}

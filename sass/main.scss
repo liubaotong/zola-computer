@@ -218,6 +218,21 @@ main {
         }
     }
 
+    .post-date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+
+        .calendar-icon {
+            color: black;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+    }
+
     .post-meta {
         display: flex;
         align-items: center;
@@ -226,12 +241,18 @@ main {
         padding-top: 1rem;
         border-top: 1px solid var(--border-light);
         font-size: 0.875rem;
-        color: var(--text-muted);
+        color: var(--text-secondary);
 
         .post-date {
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            color: var(--text-muted);
+
+            .calendar-icon {
+                flex-shrink: 0;
+                opacity: 0.6;
+            }
         }
     }
 
