@@ -54,15 +54,49 @@ body {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1000;
+    width: 30px;
+    height: 30px;
+    position: relative;
     
-    span {
+    .line {
         display: block;
         width: 24px;
         height: 2px;
         background: var(--text-primary);
-        margin: 5px 0;
-        transition: 0.3s;
+        position: absolute;
+        left: 3px;
+        transition: all 0.3s ease;
         border-radius: 2px;
+        
+        &.line-1 {
+            top: 6px;
+        }
+        
+        &.line-2 {
+            top: 14px;
+        }
+        
+        &.line-3 {
+            top: 22px;
+        }
+    }
+    
+    // 激活状态 - 变成 X
+    &.active {
+        .line-1 {
+            top: 14px;
+            transform: rotate(45deg);
+        }
+        
+        .line-2 {
+            opacity: 0;
+            width: 0;
+        }
+        
+        .line-3 {
+            top: 14px;
+            transform: rotate(-45deg);
+        }
     }
 }
 
