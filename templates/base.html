@@ -35,8 +35,21 @@
         {% block content %}{% endblock content %}
     </main>
 
-    <footer>
-        <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. 保留所有权利。</p>
+    <footer class="site-footer">
+        <!-- 收藏链接区域 -->
+        <section class="favorite-links-section">
+            <div class="favorite-links-container">
+                <ul class="favorite-links" id="favorite-links">
+                    <!-- 收藏链接将通过 JS 动态加载 -->
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. 保留所有权利。</p>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -51,7 +64,7 @@
             const nav = document.querySelector('nav');
             const navLinks = document.querySelector('.nav-links');
             const menuToggle = document.querySelector('.mobile-menu-toggle');
-            
+
             if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
@@ -65,6 +78,68 @@
             } else {
                 header.style.boxShadow = 'none';
             }
+        });
+
+        // 加载并显示随机名言
+        async function loadRandomQuote() {
+            try {
+                const response = await fetch('/data.json');
+                const data = await response.json();
+                
+                if (data.quotes && data.quotes.length > 0) {
+                    const heroQuote = document.getElementById('hero-quote');
+                    if (heroQuote) {
+                        // 随机选择一句名言
+                        const randomIndex = Math.floor(Math.random() * data.quotes.length);
+                        const quote = data.quotes[randomIndex];
+                        
+                        // 显示名言（保留原始描述作为 fallback）
+                        heroQuote.innerHTML = `"${quote.text}" —— ${quote.author}`;
+                        
+                        // 每 6 分钟（360000 毫秒）更换一次名言
+                        setInterval(() => {
+                            const newIndex = Math.floor(Math.random() * data.quotes.length);
+                            const newQuote = data.quotes[newIndex];
+                            heroQuote.innerHTML = `"${newQuote.text}" —— ${newQuote.author}`;
+                        }, 360000);
+                    }
+                }
+            } catch (error) {
+                console.error('加载名言失败:', error);
+            }
+        }
+
+        // 加载收藏链接
+        async function loadFavoriteLinks() {
+            try {
+                const response = await fetch('/data.json');
+                const data = await response.json();
+                
+                if (data.favorite_links && data.favorite_links.length > 0) {
+                    const favoriteLinksContainer = document.getElementById('favorite-links');
+                    if (favoriteLinksContainer) {
+                        let linksHTML = '';
+                        data.favorite_links.forEach(link => {
+                            linksHTML += `
+                                <li class="favorite-link-item">
+                                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" title="${link.description}">
+                                        ${link.name}
+                                    </a>
+                                </li>
+                            `;
+                        });
+                        favoriteLinksContainer.innerHTML = linksHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('加载收藏链接失败:', error);
+            }
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRandomQuote();
+            loadFavoriteLinks();
         });
     </script>
 
